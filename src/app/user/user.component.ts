@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { User } from 'src/models/user.class';
+import { UserService } from '../firebase-services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -9,11 +10,16 @@ import { User } from 'src/models/user.class';
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
+  userList: User[] = [];
   user = new User();
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private userService: UserService) {}
 
   ngOnInit(): void {}
+
+  getListUsers(): User[] {
+    return this.userService.user;
+  }
 
   openDialog() {
     this.dialog.open(DialogAddUserComponent, {});

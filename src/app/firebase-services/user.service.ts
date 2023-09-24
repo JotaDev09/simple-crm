@@ -1,10 +1,11 @@
 import { Injectable, inject } from '@angular/core';
-import { User } from 'src/models/user.class';
+import { User } from 'src/interfaces/user.interface';
 import {
   Firestore,
   collection,
   doc,
   onSnapshot,
+  addDoc,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -20,6 +21,16 @@ export class UserService {
 
   constructor() {
     this.unsubUsers = this.subUsersList();
+  }
+
+  async saveUser(item: User) {
+    await addDoc(this.getUserRef(), item)
+      .catch((err) => {
+        console.error(err);
+      })
+      .then((docRef) => {
+        console.log(docRef);
+      });
   }
 
   ngOnDestroy() {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
-import { User } from 'src/models/user.class';
+import { User } from 'src/interfaces/user.interface';
 import { UserService } from '../firebase-services/user.service';
 
 @Component({
@@ -11,7 +11,6 @@ import { UserService } from '../firebase-services/user.service';
 })
 export class UserComponent implements OnInit {
   userList: User[] = [];
-  user = new User();
 
   constructor(public dialog: MatDialog, private userService: UserService) {}
 

@@ -65,12 +65,14 @@ export class UserService {
 
   setUserObject(obj: any, id: string): User {
     return {
-      firstName: obj.firstName || 'firstName',
-      lastName: obj.lastName || 'lastName',
-      birthDate: obj.birthDate || 'birthDate',
-      street: obj.street || 'street',
-      zipCode: obj.zipCode || 'zipCode',
-      city: obj.city || 'city',
+      userId: id,
+      firstName: obj.firstName || '',
+      lastName: obj.lastName || '',
+      email: obj.email || '',
+      birthDate: obj.birthDate || '',
+      street: obj.street || '',
+      zipCode: obj.zipCode || '',
+      city: obj.city || '',
     };
   }
 }

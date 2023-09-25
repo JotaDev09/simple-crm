@@ -6,6 +6,7 @@ import {
   doc,
   onSnapshot,
   addDoc,
+  updateDoc,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 

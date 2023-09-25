@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/interfaces/user.interface';
 import { UserService } from '../firebase-services/user.service';
 import { MatDialogRef } from '@angular/material/dialog';
-// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dialog-add-user',

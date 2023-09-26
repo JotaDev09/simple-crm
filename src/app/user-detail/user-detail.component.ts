@@ -10,6 +10,7 @@ import { DocumentSnapshot } from '@angular/fire/firestore';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
 import { DialogEditInfoComponent } from '../dialog-edit-info/dialog-edit-info.component';
 import { MatDialog } from '@angular/material/dialog';
+import { User } from 'src/interfaces/user.interface';
 
 @Component({
   selector: 'app-user-detail',
@@ -37,18 +38,19 @@ export class UserDetailComponent implements OnInit {
       doc(this.firestore, 'user', this.userId),
       (docSnap: DocumentSnapshot<any>) => {
         this.user = docSnap.data();
+        this.user.userId = this.userId;
         console.log(this.user);
       }
     );
   }
 
   editAddress() {
-    // const dialog = this.dialog.open(DialogEditAddressComponent);
-    // dialog.componentInstance.user = this.user;
+    const dialog = this.dialog.open(DialogEditAddressComponent);
+    dialog.componentInstance.user = this.user;
   }
 
   editInfo() {
-    // const dialog = this.dialog.open(DialogEditInfoComponent);
-    // dialog.componentInstance.user = this.user;
+    const dialog = this.dialog.open(DialogEditInfoComponent);
+    // dialog.componentInstance.userId = this.userId;
   }
 }

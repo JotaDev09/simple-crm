@@ -7,7 +7,9 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./dialog-edit-info.component.scss'],
 })
 export class DialogEditInfoComponent implements OnInit {
+  user: any;
   loading = false;
+  birthDate: Date = new Date();
 
   constructor(public dialogRef: MatDialogRef<DialogEditInfoComponent>) {}
 

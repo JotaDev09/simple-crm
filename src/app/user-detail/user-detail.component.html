@@ -9,8 +9,8 @@
 
   <img src="assets/img/profile.png">
   <div class="user-details">
-    <h2>{{user.firstName}} {{user.lastName}}</h2>
-    <a>{{user.email}}</a>
+    <h2>{{user?.firstName}} {{user?.lastName}}</h2>
+    <a>{{user?.email}}</a>
   </div>
 </mat-card>
 
@@ -27,7 +27,7 @@
     <mat-card-title>Address</mat-card-title>
   </mat-card-header>
   <mat-card-content class="user-detail-address">
-    <p>{{ user.street }}</p>
-    <p>{{ user.zipCode }}, {{ user.city }}</p>
+    <p>{{ user?.street }}</p>
+    <p>{{ user?.zipCode }}, {{ user?.city }}</p>
   </mat-card-content>
 </mat-card>

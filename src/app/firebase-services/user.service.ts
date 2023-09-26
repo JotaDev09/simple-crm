@@ -8,7 +8,6 @@ import {
   addDoc,
   updateDoc,
 } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +21,36 @@ export class UserService {
 
   constructor() {
     this.unsubUsers = this.subUsersList();
+  }
+
+  async updateUser(item: User) {
+    if (item.userId) {
+      await updateDoc(
+        this.getsingleDocRef('user', item.userId),
+        this.getCleanJson(item)
+      )
+        .catch((err) => {
+          console.error(err);
+        })
+        .then((docRef) => {
+          console.log(docRef);
+        });
+    } else {
+      console.error('No user id');
+    }
+  }
+
+  getCleanJson(item: User) {
+    return {
+      id: item.userId,
+      firstName: item.firstName,
+      lastName: item.lastName,
+      email: item.email,
+      birthDate: item.birthDate,
+      street: item.street,
+      zipCode: item.zipCode,
+      city: item.city,
+    };
   }
 
   async saveUser(item: User) {
